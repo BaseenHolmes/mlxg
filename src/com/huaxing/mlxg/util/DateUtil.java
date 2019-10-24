@@ -13,14 +13,31 @@ import java.text.SimpleDateFormat;
  **/
 public class DateUtil {
 
+    /**
+     * 将字符串类型date转成sql类型date
+     *
+     * @param date
+     * @return
+     * @throws ParseException
+     */
+    public static Date changeToSqlDate(String date) throws ParseException {
+        //String -> Date SimpleDateFormat to_date
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date utildate = sdf.parse(date);
+        //java.util.Date -> java.sql.Date  1970-> 1990-01-01
+        long time = utildate.getTime();
+        //1970 1 1 -> 1990-01-01
+        return new Date(time);
+    }
 
-	public static Date changeToDate(String date) throws ParseException{
-		//String -> Date SimpleDateFormat to_date
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		java.util.Date utildate = sdf.parse(date);
-		//java.util.Date -> java.sql.Date  1970-> 1990-01-01
-		long time = utildate.getTime();
-		//1970 1 1 -> 1990-01-01
-		return new Date(time);
-	}
+    /**
+     * 获取当前时间并转换成sql类型date
+     *
+     * @return
+     */
+    public static java.util.Date getCurrentDateToSqlDate() {
+        return new Date(System.currentTimeMillis());
+    }
+
+
 }
