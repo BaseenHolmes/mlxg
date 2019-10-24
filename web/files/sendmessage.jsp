@@ -23,6 +23,8 @@
          * @param obj
          */
         function recipientName(obj) {
+            alert(obj.value);
+            alert(document.getElementById("name3").value);
             document.getElementById("name3").value = obj.value;
         }
 
@@ -31,21 +33,20 @@
          * @returns {boolean}
          */
         function check() {
-
             var biaoti = document.getElementById("biaoti");
             if(biaoti.value == null){
                 alert("消息标题不能为空");
                 return false;
             }
 
-            var message = document.getElementById("Message");
+            var message = document.getElementById("message");
             if(message.value == null){
                 alert("消息标题不能为空");
                 return false;
             }
 
-            var recipient = document.getElementById("name3");
-            if(recipient.value == null){
+            var recipient = document.getElementsByName("recipient");
+            if (recipient.value === "" || recipient.value == null || recipient.value === undefined) {
                 alert("请选择收件人");
                 return false;
             }
