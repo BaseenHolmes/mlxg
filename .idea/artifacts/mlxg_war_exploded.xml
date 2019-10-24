@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="mlxg:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/mlxg_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="mlxg/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="mlxg" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="F:/华育兴业/mlxg/项目系统/项目系统/项目管理系统-运行/工程需要的外部Jar包/jspsmartupload.jar" />
+          <element id="file-copy" path="F:/华育兴业/mlxg/项目系统/项目系统/项目管理系统-运行/工程需要的外部Jar包/jdom.jar" />
+          <element id="file-copy" path="F:/华育兴业/mlxg/项目系统/项目系统/项目管理系统-运行/工程需要的外部Jar包/My_Jdbc.jar" />
+          <element id="file-copy" path="F:/华育兴业/mlxg/项目系统/项目系统/项目管理系统-运行/工程需要的外部Jar包/ojdbc14.jar" />
+          <element id="file-copy" path="F:/jar包/jstl-1.2.jar" />
+          <element id="file-copy" path="F:/jar包/jstl-impl.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
