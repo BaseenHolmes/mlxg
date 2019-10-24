@@ -35,8 +35,30 @@ public class DateUtil {
      *
      * @return
      */
-    public static java.util.Date getCurrentDateToSqlDate() {
+    public static Date getCurrentDateToSqlDate() {
         return new Date(System.currentTimeMillis());
+    }
+
+    /**
+     * 获取字符串类型的当前系统时间（不含时分秒）
+     *
+     * @return
+     */
+    public static String getCurrentDateNoHour() {
+        java.util.Date date = new java.util.Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
+    }
+
+    /**
+     * 获取字符串类型的当前系统时间（含时分秒）
+     *
+     * @return
+     */
+    public static String getCurrentDate() {
+        java.util.Date date = new java.util.Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
     }
 
 
