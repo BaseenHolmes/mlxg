@@ -14,6 +14,7 @@
           <element id="file-copy" path="F:/华育兴业/mlxg/项目系统/项目系统/项目管理系统-运行/工程需要的外部Jar包/ojdbc14.jar" />
           <element id="file-copy" path="F:/jar包/jstl-1.2.jar" />
           <element id="file-copy" path="F:/jar包/jstl-impl.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/lombok-1.18.8.jar" />
         </element>
       </element>
     </root>
