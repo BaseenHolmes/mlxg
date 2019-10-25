@@ -9,7 +9,7 @@
    @Date Created in 2019/10/23 18:35
    @Version v1.0
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" errorPage="/500.jsp" %>
 
 <html>
 <head>
@@ -95,6 +95,9 @@
             return checkUserid() && checkPassword() && checkAgain();
         }
 
+        function AA() {
+            window.open('https://github.com/BaseenHolmes/mlxg/commits/master', "");
+        }
 
     </script>
 </head>
