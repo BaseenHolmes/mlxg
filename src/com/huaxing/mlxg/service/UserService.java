@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @ClassName: UserService
- * @Description: TODO
+ * @Description: TODO 用户业务层
  * @Author: Baseen
  * @Date: 2019/10/22 14:04
  * @Version: v1.0
@@ -54,5 +54,14 @@ public class UserService {
             result = "用户名可用";
         }
         return result;
+    }
+
+    /**
+     * 查询所有项目经理
+     *
+     * @return
+     */
+    public List<User> queryProjectLeader() {
+        return userDao.queryLeader();
     }
 }

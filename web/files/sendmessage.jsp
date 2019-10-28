@@ -46,7 +46,7 @@
             }
 
             var recipient = document.getElementsByName("recipient");
-            if (recipient.value === "" || recipient.value == null || recipient.value === undefined) {
+            if (recipient.value === "" || recipient.value == null) {
                 alert("请选择收件人");
                 return false;
             }

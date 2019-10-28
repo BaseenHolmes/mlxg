@@ -14,9 +14,13 @@ public class Project {
 	private Long userid;
 	private Long pnumber;
 	private String pstart;
-	private String pgengxin;
+    private String pend;
 	private String pyouxianji;
 	private String pzhuangtai;
-
+    private long pchengben;
+    private long pyusuan;
+    private String pbeizhu;
+    private String cname;
+    private String uname;
 
 }

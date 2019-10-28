@@ -44,7 +44,7 @@ public class BaseServlet extends HttpServlet {
             Method method = aclass.getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
             Object obj = method.invoke(aclass.newInstance(), request, response);
             if (obj == null) {
-                System.out.println("BaseServlet：返回的url为空");
+                //System.out.println("BaseServlet：返回的url为空");
                 return;
             }
             request.getRequestDispatcher((String) obj).forward(request, response);

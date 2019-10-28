@@ -9,7 +9,7 @@
    @Date Created in 2019/10/24 15:38
    @Version v1.0
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
 <head>

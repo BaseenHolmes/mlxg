@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @ClassName: UserDao
- * @Description: TODO
+ * @Description: TODO 用户持久层
  * @Author: Baseen
  * @Date: 2019/10/22 14:04
  * @Version: v1.0
@@ -71,5 +71,25 @@ public class UserDao {
             }
         });
     }
+
+    /**
+     * 查询所有项目经理
+     *
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public List<User> queryLeader() {
+        String sql = "select userid,username from pms_user where roid = 2";
+        return jdbcTemplate.queryForList(sql, new RowMapper() {
+            @Override
+            public Object mapRow(ResultSet rs) throws SQLException {
+                User user = new User();
+                user.setUserid(rs.getLong("userid"));
+                user.setUsername(rs.getString("username"));
+                return user;
+            }
+        });
+    }
+
 
 }

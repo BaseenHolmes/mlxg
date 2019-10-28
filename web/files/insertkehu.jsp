@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB18030" %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="f" %>
 <%
@@ -18,7 +18,7 @@
     <meta http-equiv="expires" content="0">
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
-    <title>ÏîÄ¿¹ÜÀíÏµÍ³ </title>
+    <title>é¡¹ç›®ç®¡ç†ç³»ç»Ÿ </title>
     <link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all"/>
 
     <script type="text/javascript" src="<%=basePath %>jquery.js"></script>
@@ -26,7 +26,7 @@
 
         function check() {
             if (document.getElementById('clientname').value == null || document.getElementById('clientname').value === '' || document.getElementById('clientname').value === undefined) {
-                alert('¹«Ë¾Ãû³Æ²»ÄÜÎª¿Õ');
+                alert('å…¬å¸åç§°ä¸èƒ½ä¸ºç©º');
                 return false
             }
             return true;
@@ -51,7 +51,7 @@
     <div class="MainDiv">
         <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
             <tr>
-                <th class="tablestyle_title">¿Í»§»ù±¾ĞÅÏ¢Â¼Èë</th>
+                <th class="tablestyle_title">å®¢æˆ·åŸºæœ¬ä¿¡æ¯å½•å…¥</th>
             </tr>
             <tr>
                 <td class="CPanel">
@@ -64,19 +64,19 @@
                         <TR>
                             <TD width="100%">
                                 <fieldset style="height:100%;">
-                                    <legend>¿Í»§ĞÅÏ¢</legend>
+                                    <legend>å®¢æˆ·ä¿¡æ¯</legend>
                                     <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 
 
                                         <tr>
-                                            <td nowrap align="right" width="15%">¹«Ë¾Ãû³Æ:</td>
+                                            <td nowrap align="right" width="15%">å…¬å¸åç§°:</td>
                                             <td width="35%">
                                                 <input name="clientname" class="text" style="width:154px" value=""
                                                        id="clientname"/>
                                                 <span class="red">*</span>
                                                 <div id="name"></div>
                                             </td>
-                                            <td width="16%" align="right" nowrap="nowrap">ÁªÏµÈË:</td>
+                                            <td width="16%" align="right" nowrap="nowrap">è”ç³»äºº:</td>
                                             <td width="34%"><input class="text" name="cper" id="cper"
                                                                    style="width:154px" value="">
                                                 <div id="per"></div>
@@ -85,11 +85,11 @@
 
 
                                         <tr>
-                                            <td nowrap="nowrap" align="right">ÁªÏµµç»°:</td>
+                                            <td nowrap="nowrap" align="right">è”ç³»ç”µè¯:</td>
                                             <td><input class="text" name="ctel" id="ctel" style="width:154px" value=""/>
                                                 <div id="tel"></div>
                                             </td>
-                                            <td align="right">ÁªÏµµØÖ·:</td>
+                                            <td align="right">è”ç³»åœ°å€:</td>
                                             <td><input class="text" name="caddr" id="caddr" style="width:154px"
                                                        value=""/>
                                                 <div id="addr"></div>
@@ -97,7 +97,7 @@
                                         </tr>
 
                                         <tr>
-                                            <td align="right">¹«Ë¾±³¾°:</td>
+                                            <td align="right">å…¬å¸èƒŒæ™¯:</td>
                                             <td colspan="3"><textarea name="cbackground" id="cbackground" cols="100"
                                                                       rows="8"></textarea>
                                                 <div id="background"></div>
@@ -117,9 +117,9 @@
                 <TD colspan="2" height="50px" align="right">
 
 
-                    <input type="submit" name="Submit" value="±£´æ" class="button" id="save" onclick="return check()"/>
+                    <input type="submit" name="Submit" value="ä¿å­˜" class="button" id="save" onclick="return check()"/>
 
-                    <input type="button" name="Submit2" value="·µ»Ø" class="button" onclick="window.history.go(-1);"/>
+                    <input type="button" name="Submit2" value="è¿”å›" class="button" onclick="window.history.go(-1);"/>
                 </TD>
             </TR>
         </TABLE>

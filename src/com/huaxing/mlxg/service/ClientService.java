@@ -19,7 +19,7 @@ public class ClientService {
     private ClientDao clientDao = new ClientDao();
 
     /**
-     * 查询所有用户
+     * 查询所有客户信息
      *
      * @return
      */
@@ -27,6 +27,15 @@ public class ClientService {
         return clientDao.queryAllClient();
     }
 
+    /**
+     * 添加客户
+     *
+     * @param clientname
+     * @param cper
+     * @param ctel
+     * @param caddr
+     * @param cbackground
+     */
     public void insertClient(String clientname, String cper, String ctel, String caddr, String cbackground) {
         Client client = new Client();
         client.setCname(clientname);
@@ -56,4 +65,5 @@ public class ClientService {
     public void deleteClient(long id) {
         clientDao.delete(id);
     }
+
 }

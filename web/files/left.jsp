@@ -11,29 +11,28 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb18030"/>
     <title>项目管理系统 </title>
     <style type="text/css">
-        <!--
-        body {
+        /*body {
             margin-left: 0px;
             margin-top: 0px;
             margin-right: 0px;
             margin-bottom: 0px;
-            background-image: url(../images/left.gif);
-        }
-
-        -->
+            background-image: url(
+        <%=path%>
+        /images/left.gif);
+                }*/
     </style>
-    <link href="../css/css.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=path%>/css/css.css" rel="stylesheet" type="text/css"/>
 
-    <script src="<%=path %>/dtree.js" type="text/javascript"></script>
+    <script src="<%=path%>/dtree.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         var powerId = new dTree('powerId');
         var check = "false";
-        powerId.add(0, -1, '', '');
+        powerId.add(0, -1, '选择操作', '');
 
-        function checkNode(nodeId) {
+        /*function checkNode(nodeId) {
             powerId.checkNode(nodeId);
-        }
+        }*/
     </script>
 
 </head>
@@ -48,10 +47,11 @@
         <TD>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td width="207" height="55" background="../images/nav01.gif">
+                    <td width="207" height="55" background="<%=path%>/images/nav01.gif">
                         <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
-                                <td width="25%" rowspan="2"><img src="../images/ico02.gif" width="35" height="35"/></td>
+                                <td width="25%" rowspan="2"><img src="<%=path%>/images/ico02.gif" width="35"
+                                                                 height="35"/></td>
                                 <td width="75%" height="22" class="left-font01">您好，<span
                                         class="left-font02">${sessionScope.username }</span></td>
                             </tr>
