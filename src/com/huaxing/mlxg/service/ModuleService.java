@@ -25,7 +25,16 @@ public class ModuleService {
         return moduleDao.queryAll();
     }
 
-
+    /**
+     * 添加模块
+     *
+     * @param mname
+     * @param mbiaoshi
+     * @param myouxianji
+     * @param prono
+     * @param needid
+     * @param mtext
+     */
     public void doAddModule(String mname, String mbiaoshi, String myouxianji, String prono, String needid, String mtext) {
         Module module = new Module();
         module.setMname(mname);
@@ -37,10 +46,15 @@ public class ModuleService {
         moduleDao.insert(module);
     }
 
-    public Module queryModuleByModuleid(String id) {
-        return moduleDao.queryOne(Long.parseLong(id));
-    }
-
+    /**
+     * 更新模块
+     * @param mname
+     * @param mbiaoshi
+     * @param myouxianji
+     * @param prono
+     * @param needid
+     * @param mtext
+     */
     public void doUpdateModule(String mname, String mbiaoshi, String myouxianji, String prono, String needid, String mtext) {
         Module module = new Module();
         module.setMname(mname);
@@ -52,11 +66,30 @@ public class ModuleService {
         moduleDao.update(module);
     }
 
+    /**
+     * 删除模块
+     * @param moduleid
+     */
     public void deleteByModuleId(long moduleid) {
         moduleDao.deleteByModuleId(moduleid);
     }
 
+    /**
+     * 根据模块id查询模块
+     * @param id
+     * @return
+     */
     public Module showOneModule(String id) {
         return moduleDao.queryOne(Long.parseLong(id));
+    }
+
+    /**
+     * 根据根据需求id查询所有需求下的模块
+     *
+     * @param needid
+     * @return
+     */
+    public List<Module> queryModuleByNeedId(String needid) {
+        return moduleDao.queryMuduleByNeedId(Long.parseLong(needid));
     }
 }

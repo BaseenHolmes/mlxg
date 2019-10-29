@@ -6,7 +6,7 @@
 <%--
    @Description: TODO 
    @Author Baseen
-   @Date Created in 2019/10/29 0:04
+   @Date Created in 2019/10/29 22:23
    @Version v1.0
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
@@ -17,7 +17,7 @@
 <head>
     <base href="http://localhost:8081/mlxg/">
 
-    <title>My JSP 'listmokuaimingxi.jsp' starting page</title>
+    <title>My JSP 'jihuamingxi.jsp' starting page</title>
 
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
@@ -106,13 +106,14 @@
     }
 
     function link() {
-        document.getElementById("fom").action = "xuqiumingxi.html";
+        document.getElementById("fom").action = "xiangmu.htm";
         document.getElementById("fom").submit();
     }
+
 </SCRIPT>
 
 <body>
-<form name="fom" id="fom" method="post">
+<form name="fom" id="fom" method="post" action="">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
         <tr>
@@ -123,7 +124,8 @@
 
                             <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <td width="21">&nbsp;</td>
+                                    <td width="679" align="left"><a href="#" onclick="sousuo()"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
+                                    </td>
                                 </tr>
                             </table>
                         </td>
@@ -134,6 +136,7 @@
         <tr>
             <td>
                 <table id="subtree1" style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0">
+
                     <tr>
                         <td>
                             <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -144,46 +147,92 @@
                                                class="newfont03">
 
                                             <tr>
-                                                <td height="20" colspan="3" align="center" bgcolor="#EEEEEE"
-                                                    class="tablestyle_title">
-                                                    <div align="center" style="font-size:16px">模块明细列表</div>
+                                                <td height="20" colspan="9" align="center" bgcolor="#EEEEEE"
+                                                    class="tablestyle_title"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    计划明细列表 &nbsp;
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td width="16%" height="20" align="right" bgcolor="#FFFFFF">模块名称:</td>
-                                                <td width="84%" colspan="2"
-                                                    bgcolor="#FFFFFF">${requestScope.module.mname}</td>
+                                                <td width="15%" height="20" align="right" bgcolor="#FFFFFF">计划标题:</td>
+                                                <td width="85%" align="left" bgcolor="#FFFFFF">望着</td>
                                             </tr>
                                             <tr>
-                                                <td width="16%" height="20" align="right" bgcolor="#FFFFFF">模块标识:</td>
-                                                <td width="84%" colspan="2"
-                                                    bgcolor="#FFFFFF">${requestScope.module.mbiaoshi}</td>
+                                                <td height="20" align="right" bgcolor="#FFFFFF">项目名称:</td>
+                                                <td bgcolor="#FFFFFF">种子软件</td>
                                             </tr>
+                                            <tr>
+                                                <td height="20" align="right" bgcolor="#FFFFFF">项目模块:</td>
+                                                <td bgcolor="#FFFFFF">称为老总</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">项目功能:</td>
+                                                <td bgcolor="#FFFFFF">么有问题</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">计划开始时间:</td>
+                                                <td bgcolor="#FFFFFF">2011-12-12</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">计划结束时间:</td>
+                                                <td bgcolor="#FFFFFF">2011-12-31</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">实际开始时间:</td>
+                                                <td bgcolor="#FFFFFF"></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">实际结束时间:</td>
+                                                <td bgcolor="#FFFFFF"></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">计划创建时间:</td>
+                                                <td bgcolor="#FFFFFF">2011-12-01</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">任务执行人:</td>
+                                                <td bgcolor="#FFFFFF">逃兵</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">工期:</td>
+                                                <td bgcolor="#FFFFFF">19 天</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">优先级:</td>
 
-                                            <tr>
-                                                <td height="20" align="right" bgcolor="#FFFFFF">所属项目:</td>
-                                                <td colspan="2"
-                                                    bgcolor="#FFFFFF">${requestScope.module.projectname}</td>
+
+                                                <td bgcolor="#FFFFFF">很急</td>
+
                                             </tr>
                                             <tr>
-                                                <td height="20" align="right" bgcolor="#FFFFFF">所属需求:</td>
-                                                <td colspan="2" bgcolor="#FFFFFF">${requestScope.module.needname}</td>
+                                                <td align="right" bgcolor="#FFFFFF">任务类型:</td>
+                                                <td bgcolor="#FFFFFF">1</td>
                                             </tr>
                                             <tr>
-                                                <td height="20" align="right" bgcolor="#FFFFFF">优先级:</td>
-                                                <td bgcolor="#FFFFFF">${requestScope.module.myouxianji}</td>
+                                                <td align="right" bgcolor="#FFFFFF">任务下发时间:</td>
+                                                <td bgcolor="#FFFFFF">2019-10-25</td>
                                             </tr>
                                             <tr>
-                                                <td height="20" align="right" bgcolor="#FFFFFF">创建时间:</td>
-                                                <td colspan="2" bgcolor="#FFFFFF">${requestScope.module.mstart}</td>
+                                                <td align="right" bgcolor="#FFFFFF">前置任务计划:</td>
+                                                <td bgcolor="#FFFFFF"></td>
                                             </tr>
                                             <tr>
-                                                <td height="20" align="right" bgcolor="#FFFFFF">更新时间:</td>
-                                                <td colspan="2" bgcolor="#FFFFFF">${requestScope.module.mupdate}</td>
+                                                <td align="right" bgcolor="#FFFFFF">状态:</td>
+
+                                                <td bgcolor="#FFFFFF">未开始</td>
+
+
                                             </tr>
                                             <tr>
-                                                <td height="80" align="right" bgcolor="#FFFFFF">模块描述:</td>
-                                                <td colspan="2" bgcolor="#FFFFFF">${requestScope.module.mtext}</td>
+                                                <td align="right" bgcolor="#FFFFFF">是否超期:</td>
+                                                <td bgcolor="#FFFFFF">否</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">超期天数:</td>
+                                                <td bgcolor="#FFFFFF">没有超期 天</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" bgcolor="#FFFFFF">计划备注:</td>
+                                                <td bgcolor="#FFFFFF">大打</td>
                                             </tr>
                                         </table>
                                     </td>
@@ -197,8 +246,7 @@
                         <td height="6"><img src="images/spacer.gif" width="1" height="1"/></td>
                     </tr>
                     <tr>
-                        <TD height="33">
-
+                        <td height="33">
                             <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"
                                    class="right-font08">
                                 <tr>
@@ -208,7 +256,7 @@
                                 <tr>
                                 </tr>
                             </table>
-                        </TD>
+                        </td>
                     </tr>
                 </table>
             </td>

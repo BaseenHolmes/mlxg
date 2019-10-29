@@ -52,21 +52,6 @@
             });
         }
 
-        //删除模块
-        $(document).ready(function () {
-            $("#del").click(function () {
-                if (rid == 1) {
-                    alert("没有可删除的模块！！！");
-                } else {
-                    var v = confirm("确认删除模块" + (rid - 1) + "!");
-                    if (v == true) {
-                        rid++;
-                        document.getElementById('t1').deleteRow();
-                    }
-                }
-            });
-        });
-
 
     </script>
 

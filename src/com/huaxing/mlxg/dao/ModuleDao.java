@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @ClassName: ModuleDao
- * @Description: TODO
+ * @Description: TODO 模块持久层
  * @Author: Baseen
  * @Date: 2019/10/28 13:55
  * @Version: v1.0
@@ -86,5 +86,17 @@ public class ModuleDao implements RowMapper {
     public void deleteByModuleId(long moduleid) {
         String sql = "delete from pms_module where moduleid=?";
         jdbcTemplate.update(sql, new Object[]{moduleid});
+    }
+
+    /**
+     * 根据需求id查询模块
+     *
+     * @param needid
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public List<Module> queryMuduleByNeedId(long needid) {
+        String sql = "select * from pms_module pm,pms_need pn,pms_project pp where pm.needid=pn.needid and pn.projectid=pp.projectid and pm.needid=?";
+        return (List<Module>) jdbcTemplate.queryForList(sql, new Object[]{needid}, this);
     }
 }

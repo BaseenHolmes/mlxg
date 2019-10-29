@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +22,5 @@ public class Project {
     private String pbeizhu;
     private String cname;
     private String uname;
-    private Date pupdate;
-    private Date pcreate;
 
 }

@@ -23,8 +23,6 @@
          * @param obj
          */
         function recipientName(obj) {
-            alert(obj.value);
-            alert(document.getElementById("name3").value);
             document.getElementById("name3").value = obj.value;
         }
 

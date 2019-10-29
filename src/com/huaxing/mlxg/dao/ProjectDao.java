@@ -15,7 +15,7 @@ import java.util.List;
  * @Date: 2019/10/25 10:15
  * @Version: v1.0
  **/
-public class ProjectDao {
+public class ProjectDao implements RowMapper {
 
     private JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
@@ -25,7 +25,7 @@ public class ProjectDao {
      * @param project
      */
     public void insert(Project project) {
-        String sql = "insert into pms_project values (project_id_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into pms_project values (project_id_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,sysdate,sysdate)";
         jdbcTemplate.update(sql, new Object[]{project.getPname(), project.getClientid(), project.getUserid(), project.getPnumber(), project.getPstart(), project.getPyouxianji(), project.getPzhuangtai(), project.getPchengben(), project.getPyusuan(), project.getPend(), project.getPbeizhu()});
     }
 
@@ -45,6 +45,7 @@ public class ProjectDao {
                 "                       pchengben = ?," +
                 "                       pyusuan = ?," +
                 "                       pend = ?," +
+                "                       pupdate = sysdate," +
                 "                       pbeizhu = ? where projectid = ?";
         jdbcTemplate.update(sql, new Object[]{project.getPname(), project.getClientid(), project.getUserid(), project.getPnumber(), project.getPstart(), project.getPyouxianji(), project.getPzhuangtai(), project.getPchengben(), project.getPyusuan(), project.getPend(), project.getPbeizhu(), project.getProjectid()});
     }
@@ -57,25 +58,7 @@ public class ProjectDao {
     @SuppressWarnings("unchecked")
     public List<Project> queryAll() {
         String sql = "select * from pms_project pp,pms_client pc,pms_user pu where pp.clientid=pc.clientid and pp.userid=pu.userid";
-        return (List<Project>) jdbcTemplate.queryForList(sql, new RowMapper() {
-            @Override
-            public Object mapRow(ResultSet rs) throws SQLException {
-                Project project = new Project();
-                project.setProjectid(rs.getLong("projectid"));
-                project.setPname(rs.getString("pname"));
-                project.setClientid(rs.getLong("clientid"));
-                project.setUserid(rs.getLong("userid"));
-                project.setPnumber(rs.getLong("pnumber"));
-                project.setPstart(rs.getString("pstart"));
-                project.setPyouxianji(rs.getString("pyouxianji"));
-                project.setPzhuangtai(rs.getString("pzhuangtai"));
-                project.setCname(rs.getString("cname"));
-                project.setUname(rs.getString("username"));
-                project.setPyusuan(rs.getLong("pyusuan"));
-                project.setPbeizhu(rs.getString("pbeizhu"));
-                return project;
-            }
-        });
+        return (List<Project>) jdbcTemplate.queryForList(sql, this);
     }
 
     /**
@@ -85,25 +68,7 @@ public class ProjectDao {
      */
     public Project queryProjectById(long projectId) {
         String sql = "select * from pms_project pp,pms_client pc,pms_user pu where pp.clientid=pc.clientid and pp.userid=pu.userid and projectid=?";
-        return (Project) jdbcTemplate.queryForOne(sql, new Object[]{projectId}, new RowMapper() {
-            @Override
-            public Object mapRow(ResultSet rs) throws SQLException {
-                Project project = new Project();
-                project.setProjectid(rs.getLong("projectid"));
-                project.setPname(rs.getString("pname"));
-                project.setClientid(rs.getLong("clientid"));
-                project.setUserid(rs.getLong("userid"));
-                project.setPnumber(rs.getLong("pnumber"));
-                project.setPstart(rs.getString("pstart"));
-                project.setPyouxianji(rs.getString("pyouxianji"));
-                project.setPzhuangtai(rs.getString("pzhuangtai"));
-                project.setCname(rs.getString("cname"));
-                project.setUname(rs.getString("username"));
-                project.setPyusuan(rs.getLong("pyusuan"));
-                project.setPbeizhu(rs.getString("pbeizhu"));
-                return project;
-            }
-        });
+        return (Project) jdbcTemplate.queryForOne(sql, new Object[]{projectId}, this);
     }
 
     /**
@@ -114,5 +79,26 @@ public class ProjectDao {
     public void delete(long id) {
         String sql = "delete from pms_project where projectid=?";
         jdbcTemplate.update(sql, new Object[]{id});
+    }
+
+    @Override
+    public Object mapRow(ResultSet rs) throws SQLException {
+        Project project = new Project();
+        project.setProjectid(rs.getLong("projectid"));
+        project.setPname(rs.getString("pname"));
+        project.setClientid(rs.getLong("clientid"));
+        project.setUserid(rs.getLong("userid"));
+        project.setPnumber(rs.getLong("pnumber"));
+        project.setPstart(rs.getString("pstart"));
+        project.setPend(rs.getString("pend"));
+        project.setPyouxianji(rs.getString("pyouxianji"));
+        project.setPzhuangtai(rs.getString("pzhuangtai"));
+        project.setCname(rs.getString("cname"));
+        project.setUname(rs.getString("username"));
+        project.setPyusuan(rs.getLong("pyusuan"));
+        project.setPbeizhu(rs.getString("pbeizhu"));
+        project.setPupdate(rs.getDate("pupdate"));
+        project.setPcreate(rs.getDate("pcreate"));
+        return project;
     }
 }

@@ -1,0 +1,12 @@
+例：
+一，创建pms_message表（建表语句参照项目相关文件夹中建表语句模板）
+二，实现学生id的自增 （需先创建序列）
+	create sequence message_id_seq;  --创建序列
+
+1.使用序列的.NEXTVAL方法向表插入字段值
+insert into pms_message values (message_id_seq.nextval,'消息标题','发件人id','收件人id',sysdate,'消息内容')
+2.查询表，验证是否成功
+select * from message   
+
+
+还有一种使用触发器创建自增字段的方法，过程相比上面的方法要更繁琐，有兴趣的小伙伴可以自行百度。

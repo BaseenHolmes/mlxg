@@ -15,7 +15,7 @@ import java.util.List;
  * @Date: 2019/10/22 14:04
  * @Version: v1.0
  **/
-public class UserDao {
+public class UserDao implements RowMapper {
 
     private JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
@@ -27,23 +27,7 @@ public class UserDao {
      */
     public User load(String username) {
         String sql = "select * from pms_user where username = ?";
-        return (User) jdbcTemplate.queryForOne(sql, new Object[]{username}, new RowMapper() {
-            @Override
-            public Object mapRow(ResultSet rs) throws SQLException {
-                User user = new User();
-                user.setUserid(rs.getLong("userid"));
-                user.setUsername(rs.getString("username"));
-                user.setRoid(rs.getLong("roid"));
-                user.setUtype(rs.getString("utype"));
-                user.setUsex(rs.getString("usex"));
-                user.setUage(rs.getInt("uage"));
-                user.setUemail(rs.getString("uemail"));
-                user.setUphone(rs.getLong("uphone"));
-                user.setPassword(rs.getString("password"));
-                user.setUcardid(rs.getString("ucardid"));
-                return user;
-            }
-        });
+        return (User) jdbcTemplate.queryForOne(sql, new Object[]{username}, this);
     }
 
     /**
@@ -53,23 +37,7 @@ public class UserDao {
     @SuppressWarnings("unchecked")
     public List<User> queryAllUser(){
         String sql = "select * from pms_user";
-        return (List<User>) jdbcTemplate.queryForList(sql, new RowMapper() {
-            @Override
-            public Object mapRow(ResultSet rs) throws SQLException {
-                User user = new User();
-                user.setUserid(rs.getLong("userid"));
-                user.setUsername(rs.getString("username"));
-                user.setRoid(rs.getLong("roid"));
-                user.setUtype(rs.getString("utype"));
-                user.setUsex(rs.getString("usex"));
-                user.setUage(rs.getInt("uage"));
-                user.setUemail(rs.getString("uemail"));
-                user.setUphone(rs.getLong("uphone"));
-                user.setPassword(rs.getString("password"));
-                user.setUcardid(rs.getString("ucardid"));
-                return user;
-            }
-        });
+        return (List<User>) jdbcTemplate.queryForList(sql, this);
     }
 
     /**
@@ -92,4 +60,27 @@ public class UserDao {
     }
 
 
+    @Override
+    public Object mapRow(ResultSet rs) throws SQLException {
+        User user = new User();
+        user.setUserid(rs.getLong("userid"));
+        user.setUsername(rs.getString("username"));
+        user.setRoid(rs.getLong("roid"));
+        user.setUtype(rs.getString("utype"));
+        user.setUsex(rs.getString("usex"));
+        user.setUage(rs.getInt("uage"));
+        user.setUemail(rs.getString("uemail"));
+        user.setUphone(rs.getLong("uphone"));
+        user.setPassword(rs.getString("password"));
+        user.setUcardid(rs.getString("ucardid"));
+        user.setUaddress(rs.getString("uaddress"));
+        user.setUbankid(rs.getString("ubankid"));
+        user.setUbankname(rs.getString("ubankname"));
+        user.setUsalary(rs.getString("usalary"));
+        user.setUbonus(rs.getString("ubonus"));
+        user.setUbuzhu(rs.getString("ubuzhu"));
+        user.setUtext(rs.getString("utext"));
+        user.setUstart(rs.getString("ustart"));
+        return user;
+    }
 }

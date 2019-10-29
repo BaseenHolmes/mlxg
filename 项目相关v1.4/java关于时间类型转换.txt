@@ -1,0 +1,42 @@
+利用java获取当前的时间(String类型，年-月-日 时：分：秒)
+
+//我要获取当前的日期
+Date date = new Date();
+//设置要获取到什么样的时间
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//获取String类型的时间
+String createdate = sdf.format(date);
+
+
+--------------------------------------------------------------------------------
+利用java获取当前的时间(String类型，年-月-日)
+
+//我要获取当前的日期
+Date date = new Date();
+//设置要获取到什么样的时间
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//获取String类型的时间
+String createdate = sdf.format(date);
+
+
+--------------------------------------------------------------------------------
+把一个String类型的时间转换成Date类型（会有异常抛出）
+
+public static Date changeToSqlDate(String date) throws ParseException {
+    //String -> Date SimpleDateFormat to_date
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    java.util.Date utildate = sdf.parse(date);
+    //java.util.Date -> java.sql.Date  1970-> 1990-01-01
+    long time = utildate.getTime();
+    //1970 1 1 -> 1990-01-01
+    return new Date(time);
+}
+
+
+--------------------------------------------------------------------------------
+获取当前时间并转换成sql类型date
+
+public static Date getCurrentDateToSqlDate() {
+    return new Date(System.currentTimeMillis());
+}
+

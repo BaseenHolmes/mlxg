@@ -53,7 +53,7 @@ public class ModuleAction {
         String path = "";
         if ("editmokuai".equals(flag)) {
             String id = request.getParameter("id");
-            Module module = moduleService.queryModuleByModuleid(id);
+            Module module = moduleService.showOneModule(id);
             request.setAttribute("module", module);
             path = "/files/editmodule.jsp";
         }
@@ -127,6 +127,7 @@ public class ModuleAction {
     public String showOneModule(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
         Module module = moduleService.showOneModule(id);
+        request.setAttribute("module", module);
         return "/files/showonemodule.jsp";
     }
 

@@ -7,11 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Functions {
-	private Long funid;
-	private String fname;
-	private String ftext;
-	private Long moduleid;
+public class Role {
+	private Long roid;
+	private String rname;
+	private String rtext;
 
 
 }

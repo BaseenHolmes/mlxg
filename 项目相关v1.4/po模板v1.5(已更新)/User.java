@@ -18,14 +18,4 @@ public class User {
     private Long uphone;
     private String password;
     private String ucardid;
-
-    private String uaddress;
-    private String ubankname;
-    private String ubankid;
-    private String usalary; //工资
-    private String ubonus; //奖金
-    private String ubuzhu;//补助金
-    private String utext;
-    private String ustart;//入职时间
-    private String ufajin;
 }

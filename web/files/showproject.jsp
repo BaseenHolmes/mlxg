@@ -130,7 +130,7 @@
                                                 <td width="10%" align="center" bgcolor="#EEEEEE">项目经理</td>
                                                 <td width="5%" align="center" bgcolor="#EEEEEE">开发人数</td>
                                                 <td width="10%" align="center" bgcolor="#EEEEEE">立项时间</td>
-                                                <%--<td width="10%" align="center" bgcolor="#EEEEEE">更新时间</td>--%>
+                                                <td width="10%" align="center" bgcolor="#EEEEEE">更新时间</td>
                                                 <td width="6%" align="center" bgcolor="#EEEEEE">任务优先级</td>
                                                 <td width="5%" align="center" bgcolor="#EEEEEE">状态</td>
                                                 <td width="10%" align="center" bgcolor="#EEEEEE">操作</td>
@@ -144,7 +144,7 @@
                                                     <td bgcolor="#FFFFFF">${pro.uname}</td>
                                                     <td bgcolor="#FFFFFF">${pro.pnumber} 人</td>
                                                     <td bgcolor="#FFFFFF">${pro.pstart}</td>
-                                                        <%--<td bgcolor="#FFFFFF"></td>--%>
+                                                    <td bgcolor="#FFFFFF">${pro.pupdate}</td>
                                                     <c:if test="${pro.pyouxianji==0}">
                                                         <td bgcolor="#FFFFFF">暂不</td>
                                                     </c:if>
@@ -172,8 +172,8 @@
                                                         <td bgcolor="#FFFFFF">已完成</td>
                                                     </c:if>
                                                     <td bgcolor="#FFFFFF"><a
-                                                            href="project.do?method=editProject&id=${pro.projectid }">编辑</a>|<a
-                                                            href="servlet/XiangMuServlet?methodName=xiangMuMingXi&prono=${pro.projectid }&tag=2">查看</a>
+                                                            href="project.do?method=editProject&id=${pro.projectid}">编辑</a>|<a
+                                                            href="project.do?method=showOneProject&id=${pro.projectid}">查看</a>
                                                     </td>
                                                     <input type='hidden' name='hello' value="${pro.projectid }">
                                                     <input type='hidden' name='world'>

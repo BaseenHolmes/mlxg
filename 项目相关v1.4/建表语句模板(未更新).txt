@@ -1,0 +1,103 @@
+create table pms_role(
+    roid number(5) primary key,
+    rname varchar2(20),
+    rtext varchar2(1000)
+)
+
+create table pms_user(
+    userid number(20) primary key,
+    uname varchar2(20),
+    roid number(5) references pms_role(roid),
+    utype varchar2(50),
+    usex varchar2(4),
+    uage number(5),
+    uemail varchar2(20),
+    uphone number(20),
+    upassword varchar2(20),
+    ucardid varchar2(20)
+)
+
+create table pms_power(
+    projectid number(5) primary key,
+    pname varchar2(20),
+    phref varchar2(40),
+    funid number(5)  
+)
+
+create table role_power(
+    roid number(5) references pms_role(roid),
+    projectid number(5) references pms_power(projectid)
+)
+
+create table pms_client(
+    clientid number(5) primary key,
+    cname varchar2(20),
+    cper varchar2(20),
+    cphone varchar2(20),
+    caddress varchar2(20),
+    cbeijing varchar2(20),
+    cdate varchar2(20)
+)
+
+create table pms_project(
+      projectid number(5) primary key,
+      pname varchar2(20),
+      clientid number(5) references pms_client(clientid),
+      userid number(20) references pms_user(userid),
+      pnumber number(5),
+      pstart varchar2(20),
+      pgengxin date,
+      pyouxianji varchar2(20),
+      pzhuangtai varchar2(20)
+)
+
+create table pms_need(
+    needid number(5) primary key,
+    nname varchar2(20),
+    ntext varchar2(100),
+    projectid number(5) references pms_project(projectid)
+
+)
+
+create table pms_module(
+    moduleid number(5) primary key,
+    mname varchar2(20),
+    mtext varchar2(100),
+    needid number(5) references pms_need(needid)
+)
+
+create table pms_functions(
+    funid number(5) primary key,
+    fname varchar2(20),
+    ftext varchar2(100),
+    moduleid number(5) references pms_module(moduleid)
+)
+
+create table pms_uploadfile(
+    fileid number(5) primary key,
+    coname varchar2(20),
+    coper varchar2(20),
+    cotime date,
+    projectid number(5) references pms_project(projectid)
+)
+
+create table pms_message(
+    messageid number(5) primary key,
+    mename varchar2(20),
+    mesend number(20) references pms_user(userid),
+    merecive number(20) references pms_user(userid),
+    medate date,
+    metext varchar2(100)
+)
+
+create table pms_plan(
+    planid  number(5) primary key,
+    plname varchar2(20),
+    plstart varchar2(20),
+    plend varchar2(20),
+    funid number(5) references pms_functions(funid),
+    flag number(5),
+    plyouxianji varchar2(20),
+    plzhuangtai varchar2(20),
+    pltext varchar2(100)
+)

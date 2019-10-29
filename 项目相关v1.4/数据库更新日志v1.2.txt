@@ -1,0 +1,67 @@
+项目数据库更新日志
+2019.10.23
+1、将"MLXG"."PMS_MESSAGE"."MENAME" 消息标题改为 varchar2(90)
+2、将"MLXG"."PMS_MESSAGE"."METEXT" 消息内容改为 varchar2(900)
+     原因说明：中文是以3个字节存储，所以varchar2(900)可以存300个中文
+3、员工表增加一列自我描述
+4、在员工表或者计划表增加一列执行人，因为在个人信息表中会显示该程序员所负责的项目
+5、消息表加一列查看消息的日期（不推荐写，太麻烦了，有病啊还记录个查看消息的时间，真是闲的）
+6、消息表增加两列发件人与收件人的用户名，或者将原来的收件和发件的id外键改成用户名
+
+2019.10.25 
+1、在项目表中添加 ---->项目实际金额(number) 
+	            ---->项目预算(number)
+	            ---->项目经理名称(varchar2)
+	            ---->客户名称(varchar2)
+最后两列是为了在页面显示名称而不是编号添加的列，通过联表查询所有需要的数据（包括名称），然后在dao中映射行set到对象中时将联表查到的名称也set进对象。
+可以采取这种方式在页面上显示名称，也可以将fk关联名称，但是名称需要添加唯一约束（不推荐，因为项目名称有可能相同，此方法没试过但应该可行）。或者有自己方法的小伙伴就按照自己的方法来，能做出来一样的效果就行。
+
+2019.10.28
+1、在需求表里添加sql类型的Date：
+	nstart 
+	nupdate
+     在po.need中添加projectname、nstart、nupdate
+
+2、在po.module中添加mstart、mupdate、projectid、projectname、needname、youxianji
+     在模块表中添加myouxianji、mstart(sql.Date)、mupdate(sql.Date)
+
+2019.10.29
+1、在功能表里：
+	添加sql类型的Date： fstart
+	添加：需求版本号       fbanbenhao
+     在po里：
+	添加sql类型的Date： fstart
+	添加：需求版本号       fbanbenhao
+	          所属项目id
+	          所属项目name
+	          所属需求id
+	          所属需求name
+	          所属模块name
+
+	          
+	          
+	          
+	          
+	          
+	          
+	          
+	          
+	          
+
+	          
+     
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
