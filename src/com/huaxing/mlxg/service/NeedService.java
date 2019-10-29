@@ -49,15 +49,38 @@ public class NeedService {
         needDao.delete(id);
     }
 
+    /**
+     * 根据需求id查询需求
+     *
+     * @param nno
+     * @return
+     */
     public Need queryNeedByNeedid(String nno) {
         return needDao.queryOne(Long.parseLong(nno));
     }
 
+    /**
+     * 更新
+     *
+     * @param needid
+     * @param nname
+     * @param ntext
+     */
     public void updateNeed(String needid, String nname, String ntext) {
         Need need = new Need();
         need.setNeedid(Long.parseLong(needid));
         need.setNname(nname);
         need.setNtext(ntext);
         needDao.update(need);
+    }
+
+    /**
+     * 根据项目id查询需求
+     *
+     * @param projectid
+     * @return
+     */
+    public List<Need> queryNeedByProjectid(String projectid) {
+        return needDao.queryNeedByProjectid(Long.parseLong(projectid));
     }
 }

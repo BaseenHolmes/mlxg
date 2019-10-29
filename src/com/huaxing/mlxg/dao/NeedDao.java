@@ -16,9 +16,22 @@ import java.util.List;
  * @Date: 2019/10/28 9:08
  * @Version: v1.0
  **/
-public class NeedDao {
+public class NeedDao implements RowMapper {
 
     private JdbcTemplate jdbcTemplate = new JdbcTemplate();
+
+    @Override
+    public Object mapRow(ResultSet rs) throws SQLException {
+        Need need = new Need();
+        need.setNeedid(rs.getLong("needid"));
+        need.setNname(rs.getString("nname"));
+        need.setNtext(rs.getString("ntext"));
+        need.setProjectid(rs.getLong("projectid"));
+        need.setNstart(rs.getDate("nstart"));
+        need.setNupdate(rs.getDate("nupdate"));
+        need.setProjectname(rs.getString("pname"));
+        return need;
+    }
 
     /**
      * 查询所有需求
@@ -28,20 +41,7 @@ public class NeedDao {
     @SuppressWarnings("unchecked")
     public List<Need> queryAll() {
         String sql = "select * from pms_need pn,pms_project pp where pn.projectid = pp.projectid";
-        return (List<Need>) jdbcTemplate.queryForList(sql, new RowMapper() {
-            @Override
-            public Object mapRow(ResultSet rs) throws SQLException {
-                Need need = new Need();
-                need.setNeedid(rs.getLong("needid"));
-                need.setNname(rs.getString("nname"));
-                need.setNtext(rs.getString("ntext"));
-                need.setProjectid(rs.getLong("projectid"));
-                need.setNstart(rs.getDate("nstart"));
-                need.setNupdate(rs.getDate("nupdate"));
-                need.setProjectname(rs.getString("pname"));
-                return need;
-            }
-        });
+        return (List<Need>) jdbcTemplate.queryForList(sql, this);
     }
 
     /**
@@ -62,20 +62,7 @@ public class NeedDao {
      */
     public Need queryOne(long needid) {
         String sql = "select * from pms_need pn,pms_project pp where pn.projectid = pp.projectid and needid=?";
-        return (Need) jdbcTemplate.queryForOne(sql, new Object[]{needid}, new RowMapper() {
-            @Override
-            public Object mapRow(ResultSet rs) throws SQLException {
-                Need need = new Need();
-                need.setNeedid(rs.getLong("needid"));
-                need.setNname(rs.getString("nname"));
-                need.setNtext(rs.getString("ntext"));
-                need.setProjectid(rs.getLong("projectid"));
-                need.setNstart(rs.getDate("nstart"));
-                need.setNupdate(rs.getDate("nupdate"));
-                need.setProjectname(rs.getString("pname"));
-                return need;
-            }
-        });
+        return (Need) jdbcTemplate.queryForOne(sql, new Object[]{needid}, this);
     }
 
     /**
@@ -95,5 +82,31 @@ public class NeedDao {
         String sql = "update pms_need set nname=?,ntext=?,nupdate=sysdate where needid=?";
         jdbcTemplate.update(sql, new Object[]{need.getNname(), need.getNtext(), need.getNeedid()});
     }
+
+    /**
+     * 根据项目id查询需求
+     *
+     * @param projectid
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public List<Need> queryNeedByProjectid(long projectid) {
+        String sql = "select * from pms_need pn,pms_project pp where pn.projectid = pp.projectid and pp.projectid=?";
+        return (List<Need>) jdbcTemplate.queryForList(sql, new Object[]{projectid}, new RowMapper() {
+            @Override
+            public Object mapRow(ResultSet rs) throws SQLException {
+                Need need = new Need();
+                need.setNeedid(rs.getLong("needid"));
+                need.setNname(rs.getString("nname"));
+                need.setNtext(rs.getString("ntext"));
+                need.setProjectid(rs.getLong("projectid"));
+                need.setNstart(rs.getDate("nstart"));
+                need.setNupdate(rs.getDate("nupdate"));
+                need.setProjectname(rs.getString("pname"));
+                return need;
+            }
+        });
+    }
+
 
 }

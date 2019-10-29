@@ -15,6 +15,8 @@
           <element id="file-copy" path="F:/jar包/jstl-1.2.jar" />
           <element id="file-copy" path="F:/jar包/jstl-impl.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/lombok-1.18.8.jar" />
+          <element id="file-copy" path="F:/jar包/jackson/jackson-core-asl-1.9.13.jar" />
+          <element id="file-copy" path="F:/jar包/jackson/jackson-mapper-asl-1.9.13.jar" />
         </element>
       </element>
     </root>
